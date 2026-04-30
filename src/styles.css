@@ -1,0 +1,292 @@
+:root {
+  color: #132033;
+  background: #eef3f8;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.control-shell {
+  min-height: 100vh;
+}
+
+.hero {
+  padding: 28px clamp(18px, 4vw, 56px) 44px;
+  color: #f8fbff;
+  background:
+    linear-gradient(135deg, rgba(8, 28, 58, 0.96), rgba(15, 61, 99, 0.92)),
+    radial-gradient(circle at top right, rgba(50, 184, 171, 0.38), transparent 34%);
+}
+
+.topbar,
+.brand,
+.card-head,
+.section-heading,
+.sections {
+  display: flex;
+}
+
+.topbar {
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand {
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark,
+.app-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.brand-mark {
+  width: 46px;
+  height: 46px;
+  background: #f7c948;
+  color: #10233f;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand small {
+  margin-top: 2px;
+  color: #b8c9d9;
+}
+
+.home-link {
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e9f2ff;
+  font-weight: 700;
+}
+
+.hero-copy {
+  max-width: 900px;
+  padding-top: clamp(42px, 9vw, 92px);
+}
+
+.hero-copy p {
+  margin: 0 0 10px;
+  color: #69d0c6;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.hero-copy h1 {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 6.8rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.hero-copy span {
+  display: block;
+  max-width: 680px;
+  margin-top: 18px;
+  color: #d8e5f0;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.sections {
+  flex-direction: column;
+  gap: 28px;
+  width: min(1240px, calc(100% - 36px));
+  margin: -26px auto 56px;
+}
+
+.suite-section {
+  padding: clamp(18px, 3vw, 26px);
+  border: 1px solid #dbe5ef;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 45px rgba(24, 45, 70, 0.11);
+}
+
+.section-heading {
+  align-items: end;
+  justify-content: space-between;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+.section-heading span {
+  color: #4d657d;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin: 4px 0 0;
+  color: #0f2540;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  letter-spacing: 0;
+}
+
+.section-heading p {
+  max-width: 430px;
+  margin: 0;
+  color: #5d7084;
+  line-height: 1.5;
+  text-align: right;
+}
+
+.shortcut-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.shortcut-card {
+  min-height: 210px;
+  padding: 18px;
+  border: 1px solid #d9e4ee;
+  border-radius: 8px;
+  background: #ffffff;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.shortcut-card:not(.disabled):hover {
+  transform: translateY(-3px);
+  border-color: #8ab6d8;
+  box-shadow: 0 14px 32px rgba(26, 56, 88, 0.14);
+}
+
+.shortcut-card.disabled {
+  background: #f5f8fb;
+  color: #7a8a9c;
+  cursor: not-allowed;
+}
+
+.card-head {
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.app-mark {
+  width: 54px;
+  height: 54px;
+  color: #ffffff;
+  font-size: 0.86rem;
+}
+
+.app-mark.blue {
+  background: #1b5d92;
+}
+
+.app-mark.teal {
+  background: #0f766e;
+}
+
+.app-mark.green {
+  background: #208b57;
+}
+
+.app-mark.gold {
+  background: #b7791f;
+}
+
+.app-mark.rose {
+  background: #b23a48;
+}
+
+.status-pill,
+.env-label {
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.status-pill {
+  padding: 6px 9px;
+  background: #eaf4ff;
+  color: #1f5f92;
+  font-size: 0.76rem;
+}
+
+.disabled .status-pill {
+  background: #eef2f6;
+  color: #8190a0;
+}
+
+.shortcut-card h3 {
+  margin: 22px 0 10px;
+  color: #10233f;
+  font-size: 1.35rem;
+  letter-spacing: 0;
+}
+
+.shortcut-card p {
+  min-height: 54px;
+  margin: 0 0 22px;
+  color: #52677d;
+  line-height: 1.5;
+}
+
+.env-label {
+  display: inline-block;
+  max-width: 100%;
+  padding: 6px 9px;
+  background: #f5f8fb;
+  color: #687d91;
+  font-size: 0.72rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding-inline: 18px;
+  }
+
+  .topbar,
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .section-heading p {
+    text-align: left;
+  }
+
+  .sections {
+    width: calc(100% - 24px);
+  }
+}
