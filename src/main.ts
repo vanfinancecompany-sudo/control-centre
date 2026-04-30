@@ -23,10 +23,17 @@ const urls = {
     env.VITE_MARKETING_CRM_URL || "https://marketing-crm-six.vercel.app",
   workDocumentsHub:
     env.VITE_WORK_DOCUMENTS_HUB_URL || "https://work-documents-hub.vercel.app",
-  imageSuite: env.VITE_IMAGE_SUITE_URL || "",
+  imageSuite: env.VITE_IMAGE_SUITE_URL || "https://vehicle-image-suite.vercel.app",
   controlCentre:
     env.VITE_CONTROL_CENTRE_URL || "https://control-centre-navy.vercel.app",
 };
+
+function joinUrl(base: string, path = "") {
+  const cleanBase = base.trim().replace(/\/+$/, "");
+  if (!cleanBase) return "";
+  if (!path) return cleanBase;
+  return `${cleanBase}${path.startsWith("/") || path.startsWith("#") ? path : `/${path}`}`;
+}
 
 const sections: ShortcutSection[] = [
   {
@@ -75,7 +82,7 @@ const sections: ShortcutSection[] = [
         title: "Stock",
         description: "Vehicle stock views and marketing stock actions.",
         envKey: "VITE_MARKETING_CRM_URL",
-        fallback: urls.marketingCrm,
+        fallback: joinUrl(urls.marketingCrm, "/stock"),
         initials: "STK",
         tone: "blue",
       },
@@ -83,7 +90,7 @@ const sections: ShortcutSection[] = [
         title: "Reel Factory",
         description: "Create and manage short-form video assets.",
         envKey: "VITE_MARKETING_CRM_URL",
-        fallback: urls.marketingCrm,
+        fallback: joinUrl(urls.marketingCrm, "/reel-factory"),
         initials: "REEL",
         tone: "rose",
       },
@@ -91,7 +98,7 @@ const sections: ShortcutSection[] = [
         title: "Creative Library",
         description: "Reusable creative, captions, and campaign assets.",
         envKey: "VITE_MARKETING_CRM_URL",
-        fallback: urls.marketingCrm,
+        fallback: joinUrl(urls.marketingCrm, "/creative-library"),
         initials: "LIB",
         tone: "teal",
       },
@@ -105,7 +112,7 @@ const sections: ShortcutSection[] = [
         title: "Van Finance Posting",
         description: "Publishing flow for Van Finance posts.",
         envKey: "VITE_MARKETING_CRM_URL",
-        fallback: urls.marketingCrm,
+        fallback: joinUrl(urls.marketingCrm, "/van-finance-facebook"),
         initials: "VF",
         tone: "green",
       },
@@ -113,7 +120,7 @@ const sections: ShortcutSection[] = [
         title: "Rent2Buy Posting",
         description: "Publishing flow for Rent2Buy posts.",
         envKey: "VITE_MARKETING_CRM_URL",
-        fallback: urls.marketingCrm,
+        fallback: joinUrl(urls.marketingCrm, "/rent2buy-facebook"),
         initials: "R2B",
         tone: "gold",
       },
@@ -121,7 +128,7 @@ const sections: ShortcutSection[] = [
         title: "Marketplace Posting",
         description: "Marketplace publishing and listing workflow.",
         envKey: "VITE_MARKETING_CRM_URL",
-        fallback: urls.marketingCrm,
+        fallback: joinUrl(urls.marketingCrm, "/facebook-marketplace"),
         initials: "MP",
         tone: "rose",
       },
@@ -154,34 +161,66 @@ const sections: ShortcutSection[] = [
     description: "Document areas inside Work Documents Hub.",
     cards: [
       {
-        title: "Customer Files",
-        description: "Rent2Buy and Finance customer proof folders.",
+        title: "Work Documents Hub",
+        description: "Open the full document storage workspace.",
         envKey: "VITE_WORK_DOCUMENTS_HUB_URL",
         fallback: urls.workDocumentsHub,
-        initials: "CUST",
+        initials: "DOC",
         tone: "green",
       },
       {
-        title: "General Documents",
-        description: "Reusable files, forms, and general documents.",
+        title: "Rent2Buy Customer Files",
+        description: "Rent2Buy customer proof folders and uploads.",
         envKey: "VITE_WORK_DOCUMENTS_HUB_URL",
-        fallback: urls.workDocumentsHub,
-        initials: "GEN",
+        fallback: joinUrl(urls.workDocumentsHub, "#rent2buy-customers"),
+        initials: "R2B",
+        tone: "green",
+      },
+      {
+        title: "Finance Customer Files",
+        description: "Finance customer proof folders and uploads.",
+        envKey: "VITE_WORK_DOCUMENTS_HUB_URL",
+        fallback: joinUrl(urls.workDocumentsHub, "#finance-customers"),
+        initials: "FIN",
         tone: "blue",
       },
       {
-        title: "Email Templates",
-        description: "Outlook .eml templates and saved mail files.",
+        title: "Rent2Buy Documents",
+        description: "Reusable Rent2Buy forms and general documents.",
         envKey: "VITE_WORK_DOCUMENTS_HUB_URL",
-        fallback: urls.workDocumentsHub,
-        initials: "EML",
+        fallback: joinUrl(urls.workDocumentsHub, "#rent2buy-documents"),
+        initials: "R2D",
+        tone: "gold",
+      },
+      {
+        title: "Finance Documents",
+        description: "Reusable Finance forms and general documents.",
+        envKey: "VITE_WORK_DOCUMENTS_HUB_URL",
+        fallback: joinUrl(urls.workDocumentsHub, "#finance-documents"),
+        initials: "FIND",
+        tone: "blue",
+      },
+      {
+        title: "Rent2Buy Email Templates",
+        description: "Rent2Buy Outlook .eml template files.",
+        envKey: "VITE_WORK_DOCUMENTS_HUB_URL",
+        fallback: joinUrl(urls.workDocumentsHub, "#rent2buy-email-templates"),
+        initials: "R2E",
+        tone: "teal",
+      },
+      {
+        title: "Finance Email Templates",
+        description: "Finance Outlook .eml template files.",
+        envKey: "VITE_WORK_DOCUMENTS_HUB_URL",
+        fallback: joinUrl(urls.workDocumentsHub, "#finance-email-templates"),
+        initials: "FEML",
         tone: "gold",
       },
       {
         title: "Miscellaneous Files",
         description: "One-off reference files and admin folders.",
         envKey: "VITE_WORK_DOCUMENTS_HUB_URL",
-        fallback: urls.workDocumentsHub,
+        fallback: joinUrl(urls.workDocumentsHub, "#misc-files"),
         initials: "MISC",
         tone: "rose",
       },
