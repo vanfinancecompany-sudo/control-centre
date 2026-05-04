@@ -102,6 +102,22 @@ const sections: ShortcutSection[] = [
         initials: "LIB",
         tone: "teal",
       },
+      {
+        title: "Vansco Pagewatch",
+        description: "Monitor Vansco pages and website checks.",
+        envKey: "VITE_MARKETING_CRM_URL",
+        fallback: joinUrl(urls.marketingCrm, "/vansco-pagewatch"),
+        initials: "VPW",
+        tone: "gold",
+      },
+      {
+        title: "Daily Workstation",
+        description: "Daily marketing tasks and operating workspace.",
+        envKey: "VITE_MARKETING_CRM_URL",
+        fallback: joinUrl(urls.marketingCrm, "/daily-workstation"),
+        initials: "DAY",
+        tone: "green",
+      },
     ],
   },
   {
